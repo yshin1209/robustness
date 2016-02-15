@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Biologically-inspired Robustness by Yong-Jun Shin (csml.uconn.edu), 2016
-     Module 5: Biologically-Inspired Approach-->
+     Module 6: Biologically-Inspired Approach 2-->
 
     <head>
         <meta name="description" content="Learn Systems Biology, Introduction to Systems Biology">
@@ -79,7 +79,7 @@
         </div>
         <!-- Title -->
         <div id = "header" class="container">
-            <h3><b>Module 5: Biologically-Inspired Approach</b></h3>
+            <h3><b>Module 6: Biologically-Inspired Approach 2</b></h3>
             <h4>Biologically-Inspired Robustness <font color="#a9a9a9"> by UCONN CSMLab </font> <a href="http://csml.uconn.edu"><i class="glyphicon glyphicon-home w3-medium"></i></a></h4>
         </div>
 
@@ -132,17 +132,14 @@
     for (n = 0; n < N; n++)
     {
         if (n == 14)
-            {D[n] = 10} // demand 10 at time n = 14
+            {D[n] = 10}           // demand 10 at time n = 14
         else
             {D[n] = 0}
     }
 
     for (n = 0; n < N-t; n++)
     {
-        if (I[n] > M-t)
-            {P[n] = 0}           // terminate production in advance
-        else
-            {P[n] = 1}           // start producing one item
+        P[n] = 1                 // start producing one item
                                  // at each time interval
         I[n+t] = P[n]+Math.round(K*I[n+t-1])-D[n+t-1] ;  // update I
     }
