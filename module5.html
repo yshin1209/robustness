@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!-- Biologically-inspired Robustness by Yong-Jun Shin (csml.uconn.edu), 2016
+     Module 5: Biologically-Inspired Approach: Production Only-->
+
+    <head>
+        <meta name="description" content="Learn Systems Biology, Introduction to Systems Biology">
+        <meta name="author" content="Yong-Jun Shin (UCONN Computational and Systems Medicine Lab, 2016)">
+        <!-- Cascading Style Sheet (CSS) for the simulation layout-->
+        <link rel="stylesheet" href="css/sim.css">
+        <!-- Cascading Style Sheet (CSS) for the sidebar menu-->
+        <link rel="stylesheet" href="css/menu.css">
+        <!-- bootstrap.css http://getbootsrap.com -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <!-- w3.css http://www.w3schools.com/w3css/ -->
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+        <!-- jquery https://jquery.com -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- bootstrap.js http://getbootsrap.com -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <!-- ace.js: an embeddable code editor written in JavaScript https://ace.c9.io -->
+        <script src="http://rawgithub.com/ajaxorg/ace-builds/master/src-noconflict/ace.js"></script>
+        <!-- pltly.js: the open source JavaScript graphing library https://plot.ly/javascript -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    </head>
+
+    <body>
+
+        <!-- Sidebar Menu -->
+        <div id="wrapper">
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav w3-large">
+                    <li class="sidebar-brand "></li>
+                    <li>
+                        <a href="index.html">Module 1</a>
+                    </li>
+                    <li>
+                        <a href="module2.html">Module 2</a>
+                    </li>
+                    <li>
+                        <a href="module3.html">Module 3</a>
+                    </li>
+                    <li>
+                        <a href="module4.html">Module 4</a>
+                    </li>
+                    <li>
+                        <a href="module5.html">Module 5</a>
+                    </li>
+                    <li>
+                        <a href="module6.html">Module 6</a>
+                    </li>
+                    <li>
+                        <a href="module7.html">Module 7</a>
+                    </li>
+                    <li>
+                        <a href="module8.html">Module 8</a>
+                    </li>
+                    <li>
+                        <a href="module9.html">Module 9</a>
+                    </li>
+                    <li>
+                        <a href="module10.html">Module 10</a>
+                    </li>
+                    <li>
+                        <a href="module11.html">Module 11</a>
+                    </li>
+                    <li>
+                        <a href="module12.html">Module 12</a>
+                    </li>
+                    <li>
+                        <a href="module13.html">Module 13</a>
+                    </li>
+                    <li>
+                        <a href="module14.html">Module 14</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Title -->
+        <div id = "header" class="container">
+            <h3><b>Module 5: Biologically-Inspired Approach: Production Only</b></h3>
+            <h4>Biologically-Inspired Robustness <font color="#a9a9a9"> by UCONN CSMLab </font> <a href="http://csml.uconn.edu"><i class="glyphicon glyphicon-home w3-medium"></i></a></h4>
+        </div>
+
+        <!-- Navigation -->
+        <div id = "navigation" class="container">
+            <a href="module2.html"><i class="glyphicon glyphicon-chevron-right w3-xxlarge"></i></a>
+        </div>
+
+        <!-- User interface -->
+        <button id ="run" class="w3-btn w3-ripple w3-teal w3-large" onclick="run()">Run</button>
+        <button id ="reset" class="w3-btn w3-ripple w3-red w3-large" onclick="history.go(0)">Reset</button>
+        <div id = "checkbox">
+            <input id = "I" class="w3-check" type="checkbox" checked="checked" >
+            <label class="w3-medium ">Show I</label> <br>
+            <input id = "P" class="w3-check" type="checkbox" checked="checked">
+            <label class="w3-medium">Show P</label><br>
+            <input id = "D" class="w3-check" type="checkbox">
+            <label class="w3-medium">Show D</label>
+        </div>
+        <ol id = "guide">
+            <li class = "w3-large" >Modify the JavaScript code below</li>
+            <li class = "w3-large" >Check/uncheck checkboxes</li>
+            <li class = "w3-large" >Press [Run]</li>
+        </ol>
+
+        <!-- Chart -->
+        <div id="chart"></div>
+
+        <!-- Code editor with default text -->
+        <div id="editor">
+    N = 30;                       // total number of data points
+    M = 10;                       // maximum number of items storage
+                                  // capacity allows
+    I = new Array(N);             // the number of items in the inventory
+                                  // at each time point (vector)
+    P = new Array(N);             // the number of items produced at each
+                                  // time interval (vector)
+    D = new Array(N);             // the number of items demanded at each
+                                  // time interval (vector)
+    t = 5;                        // time needed for producing one item (tau)
+    K = 0.945                     // parameter K
+
+    for (n = 0; n < t; n++)
+    {
+        I[n] = 0;                 // No item added to the inventory
+                                  // until the first item is produced
+                                  // after time t
+    }
+
+    for (n = 0; n < N-t; n++)
+    {
+        P[n] = 1           // start producing one item
+                                 // at each time interval
+        I[n+t] = P[n]+Math.round(K*I[n+t-1]);  // update I
+    }
+        </div>
+
+        <!-- Code editor with default text -->
+        <script>
+            var editor = ace.edit("editor");
+            editor.setTheme("ace/theme/eclipse");
+            editor.getSession().setMode("ace/mode/javascript");
+            editor.setFontSize(16);
+
+            // Execute when [Run] is clicked
+            $("#run").click(function() {
+                var chart = document.getElementById('chart');
+                var code = editor.getValue();
+                eval(code);
+                data = [];
+                IData = {name: "I", x: n, y: I};
+                PData = {name: "P", x: n, y: P};
+                DData = {name: "D", x: n, y: D};
+                if (document.getElementById('I').checked) {
+                    data.push (IData);
+                }
+                if (document.getElementById('P').checked) {
+                    data.push (PData);
+                }
+                if (document.getElementById('D').checked) {
+                    data.push (DData);
+                }
+                layout = {
+                    xaxis: {title: 'time'},
+                    yaxis: {title: 'the number of items'},
+                    margin: {t: 40},
+                };
+                Plotly.newPlot(chart, data, layout);
+            });
+        </script>
+
+    </body>
+</html>
