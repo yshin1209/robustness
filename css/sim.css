@@ -1,0 +1,73 @@
+body {
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color:white;
+    color: black
+}
+
+#header {
+    position: absolute;
+    left: 130px;
+    top: 0px;
+    touch-action: none;
+}
+
+#navigation {
+    position: absolute;
+    left: 790px;
+    top: 20px;
+    touch-action: none;
+}
+
+#editor {
+    position: absolute;
+    top: 230px;
+    left: 140px;
+    width: 750px;
+    height: 500px;
+}
+#run {
+    position: absolute;
+    top: 128px;
+    left: 805px;
+    width: 80px;
+    height: 40px;
+}
+
+#reset {
+    position: absolute;
+    top: 178px;
+    left: 805px;
+    width: 80px;
+    height: 40px;
+}
+
+#checkbox {
+    position: absolute;
+    top: 110px;
+    left: 630px;
+}
+#guide {
+    position: absolute;
+    top: 140px;
+    left: 140px;
+}
+
+#chart {
+    position: absolute;
+    top: 190px;
+    left: 900px;
+    width: 600px;
+    height: 350px;
+}
+
+#comment {
+    position: absolute;
+    top: 550px;
+    left: 900px;
+    width: 500px;
+    height: 150px;
+}
