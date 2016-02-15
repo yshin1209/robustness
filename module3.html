@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Biologically-inspired Robustness by Yong-Jun Shin (csml.uconn.edu), 2016
-     Module 2: Production & Demand (Unlimited Storage Capacity) -->
+     Module 3: Production Only (Limited Storage Capacity)-->
 
     <head>
         <meta name="description" content="Learn Systems Biology, Introduction to Systems Biology">
@@ -79,7 +79,7 @@
         </div>
         <!-- Title -->
         <div id = "header" class="container">
-            <h3><b>Module 2: Production & Demand (Unlimited Storage Capacity)</b></h3>
+            <h3><b>Module 3: Production Only (Limited Storage Capacity)</b></h3>
             <h4>Biologically-Inspired Robustness <font color="#a9a9a9"> by UCONN CSMLab </font> <a href="http://csml.uconn.edu"><i class="glyphicon glyphicon-home w3-medium"></i></a></h4>
         </div>
 
@@ -96,8 +96,8 @@
             <label class="w3-medium ">Show I</label> <br>
             <input id = "P" class="w3-check" type="checkbox" checked="checked">
             <label class="w3-medium">Show P</label><br>
-            <input id = "D" class="w3-check" type="checkbox" checked="checked">
-            <label class="w3-medium">Show D</label>
+            <input id = "hold" class="w3-check" type="checkbox">
+            <label class="w3-medium">Hold</label>
         </div>
         <ol id = "guide">
             <li class = "w3-large" >Modify the JavaScript code below</li>
@@ -111,11 +111,11 @@
         <!-- Code editor with default text -->
         <div id="editor">
     N = 30;                       // total number of data points
+    M = 10;                       // maximum number of items storage
+                                  // capacity allows
     I = new Array(N);             // the number of items in the inventory
                                   // at each time point (vector)
     P = new Array(N);             // the number of items produced at each
-                                  // time interval (vector)
-    D = new Array(N);             // the number of items demanded at each
                                   // time interval (vector)
     t = 5;                        // time needed for producing one item (tau)
 
@@ -126,19 +126,14 @@
                                   // after time t
     }
 
-    for (n = 0; n < N; n++)
-    {
-        if (n == 14)
-            {D[n] = 10} // demand 10 at time n = 14
-        else
-            {D[n] = 0}
-    }
-
     for (n = 0; n < N-t; n++)
     {
-        P[n] = 1;                // start producing one item
+        if (I[n] > M-t)
+            {P[n] = 0}           // terminate production in advance
+        else
+            {P[n] = 1}           // start producing one item
                                  // at each time interval
-        I[n+t] = P[n]+I[n+t-1]-D[n+t-1] ;  // update I
+        I[n+t] = P[n]+I[n+t-1];  // update I
     }
 
         </div>
@@ -157,23 +152,25 @@
                 eval(code);
                 data = [];
                 IData = {name: "I", x: n, y: I};
+
                 PData = {name: "P", x: n, y: P};
-                DData = {name: "D", x: n, y: D};
                 if (document.getElementById('I').checked) {
                     data.push (IData);
                 }
                 if (document.getElementById('P').checked) {
                     data.push (PData);
                 }
-                if (document.getElementById('D').checked) {
-                    data.push (DData);
-                }
                 layout = {
                     xaxis: {title: 'time'},
                     yaxis: {title: 'the number of items'},
                     margin: {t: 40},
                 };
-                Plotly.newPlot(chart, data, layout);
+
+                if (document.getElementById('hold').checked) {
+                    Plotly.plot(chart, data, layout);
+                } else {
+                    Plotly.newPlot(chart, data, layout);
+                }
             });
         </script>
 
