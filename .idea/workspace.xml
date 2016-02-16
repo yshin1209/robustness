@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11b8a79f-727e-4792-acc3-c5a75d38c5bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module5.html" afterPath="$PROJECT_DIR$/module5.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module6.html" afterPath="$PROJECT_DIR$/module6.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/sim.css" afterPath="$PROJECT_DIR$/css/sim.css" />
     </list>
     <ignored path="robustness.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,21 +34,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="module5.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="module5.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module5.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4">
+            <state vertical-scroll-proportion="-9.153846">
               <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="module6.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="module6.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/module6.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769">
-              <caret line="123" column="32" selection-start-line="123" selection-start-column="32" selection-end-line="123" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.31428573">
+              <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -87,8 +87,8 @@
       <file leaf-file-name="sim.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/sim.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.115385">
-              <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+            <state vertical-scroll-proportion="-0.65384614">
+              <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -118,9 +118,9 @@
         <option value="$PROJECT_DIR$/module2.html" />
         <option value="$PROJECT_DIR$/module3.html" />
         <option value="$PROJECT_DIR$/module4.html" />
-        <option value="$PROJECT_DIR$/css/sim.css" />
         <option value="$PROJECT_DIR$/module6.html" />
         <option value="$PROJECT_DIR$/module5.html" />
+        <option value="$PROJECT_DIR$/css/sim.css" />
       </list>
     </option>
   </component>
@@ -346,26 +346,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/module5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846">
+          <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/sim.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385">
-          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/module6.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769">
-          <caret line="123" column="32" selection-start-line="123" selection-start-column="32" selection-end-line="123" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module5.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4">
-          <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.31428573">
+          <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
           <folding />
         </state>
       </provider>
