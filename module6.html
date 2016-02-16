@@ -120,11 +120,11 @@
 
     for (n = 0; n < N-t; n++)
     {
-        P[n] = 1                 // start producing one item
-                                 // at each time interval
-        I[n+t] = P[n]+Math.round(K*I[n+t-1])-D[n+t-1] ;  // update I
-        X[n+t-1] = I[n+t-1] - Math.round(K*I[n+t-1])  // the number of items
-                                                      // destroyed at time n+t-1
+        P[n] = 1;                 // start producing one item
+                                  // at each time interval
+        I[n+t] = P[n]+Math.round(K*I[n+t-1])-D[n+t-1]; // update I
+        X[n+t-1] = I[n+t-1] - Math.round(K*I[n+t-1]);  // the number of items
+                                                       // destroyed at time n+t-1
     }
         </div>
 
