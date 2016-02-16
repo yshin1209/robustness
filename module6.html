@@ -50,30 +50,6 @@
                     <li>
                         <a href="module6.html">Module 6</a>
                     </li>
-                    <li>
-                        <a href="module7.html">Module 7</a>
-                    </li>
-                    <li>
-                        <a href="module8.html">Module 8</a>
-                    </li>
-                    <li>
-                        <a href="module9.html">Module 9</a>
-                    </li>
-                    <li>
-                        <a href="module10.html">Module 10</a>
-                    </li>
-                    <li>
-                        <a href="module11.html">Module 11</a>
-                    </li>
-                    <li>
-                        <a href="module12.html">Module 12</a>
-                    </li>
-                    <li>
-                        <a href="module13.html">Module 13</a>
-                    </li>
-                    <li>
-                        <a href="module14.html">Module 14</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -85,19 +61,22 @@
 
         <!-- Navigation -->
         <div id = "navigation" class="container">
-            <a href="module2.html"><i class="glyphicon glyphicon-chevron-right w3-xxlarge"></i></a>
+            <a href="module5.html"><i class="glyphicon glyphicon-chevron-left w3-xxlarge"></i></a>
+            <a href="index.html"><i class="glyphicon glyphicon-chevron-right w3-xxlarge"></i></a>
         </div>
 
         <!-- User interface -->
         <button id ="run" class="w3-btn w3-ripple w3-teal w3-large" onclick="run()">Run</button>
         <button id ="reset" class="w3-btn w3-ripple w3-red w3-large" onclick="history.go(0)">Reset</button>
         <div id = "checkbox">
-            <input id = "I" class="w3-check" type="checkbox" checked="checked" >
-            <label class="w3-medium ">Show I</label> <br>
+            <input id = "I" class="w3-check" type="checkbox" checked="checked">
+            <label class="w3-medium ">Show I</label>
             <input id = "P" class="w3-check" type="checkbox" checked="checked">
-            <label class="w3-medium">Show P</label><br>
+            <label class="w3-medium">Show P</label> <br>
             <input id = "D" class="w3-check" type="checkbox" checked="checked">
             <label class="w3-medium">Show D</label>
+            <input id = "X" class="w3-check" type="checkbox" checked="checked">
+            <label class="w3-medium">Show X</label> <br>
         </div>
         <ol id = "guide">
             <li class = "w3-large" >Modify the JavaScript code below</li>
@@ -119,12 +98,14 @@
                                   // time interval (vector)
     D = new Array(N);             // the number of items demanded at each
                                   // time interval (vector)
+    X = new Array(N);             // the number of items destroyed at each
+                                  // time interval (vector)
     t = 5;                        // time needed for producing one item (tau)
     K = 0.945                     // parameter K
 
     for (n = 0; n < t; n++)
     {
-        I[n] = 0;                 // No item added to the inventory
+        I[n] = 0;                 // no item added to the inventory
                                   // until the first item is produced
                                   // after time t
     }
@@ -142,6 +123,8 @@
         P[n] = 1                 // start producing one item
                                  // at each time interval
         I[n+t] = P[n]+Math.round(K*I[n+t-1])-D[n+t-1] ;  // update I
+        X[n+t-1] = I[n+t-1] - Math.round(K*I[n+t-1])  // the number of items
+                                                      // destroyed at time n+t-1
     }
         </div>
 
@@ -161,6 +144,7 @@
                 IData = {name: "I", x: n, y: I};
                 PData = {name: "P", x: n, y: P};
                 DData = {name: "D", x: n, y: D};
+                XData = {name: "X", x: n, y: X};
                 if (document.getElementById('I').checked) {
                     data.push (IData);
                 }
@@ -169,6 +153,9 @@
                 }
                 if (document.getElementById('D').checked) {
                     data.push (DData);
+                }
+                if (document.getElementById('X').checked) {
+                    data.push (XData);
                 }
                 layout = {
                     xaxis: {title: 'time'},
